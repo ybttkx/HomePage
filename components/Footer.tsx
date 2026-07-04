@@ -46,7 +46,7 @@ export default function Footer() {
       )}
       {isVercel && (
         <div className="mt-3 flex flex-col items-center gap-1.5 text-[11px] text-gray-500 font-medium">
-          <p>本站不支持ipv6，如有需要可点击右侧WiFi图标切换cloudflare或edgeone</p>
+          <p>本线路不支持ipv6，如有需要可点击右侧WiFi图标切换cloudflare或edgeone</p>
           <a
             href="https://ipw.wsmdn.top/"
             target="_blank"
