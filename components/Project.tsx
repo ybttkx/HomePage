@@ -18,6 +18,7 @@ export default function Project({
   title_zh,
   tags,
   imageUrl,
+  icon: Icon,
   projectUrl,
   demoUrl,
 }: ProjectProps) {
@@ -46,9 +47,9 @@ export default function Project({
     >
       <section 
         onClick={handleCardClick}
-        className="bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm max-w-[45rem] border border-gray-100 dark:border-gray-700/50 rounded-2xl overflow-hidden sm:pr-8 relative sm:h-[28rem] transition-all duration-300 sm:group-even:pl-8 dark:text-white cursor-pointer"
+        className="bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm max-w-[52rem] border border-gray-100 dark:border-gray-700/50 rounded-2xl overflow-hidden sm:pr-8 relative sm:h-[28rem] transition-all duration-300 sm:group-even:pl-8 dark:text-white cursor-pointer"
       >
-        <div className="pt-8 pb-8 px-6 sm:pl-12 sm:pr-2 sm:pt-12 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
+        <div className="pt-8 pb-8 px-6 sm:pl-12 sm:pr-2 sm:pt-12 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[50%]">
           <div className="flex flex-col gap-5">
             <motion.h3 
               className="text-2xl font-semibold text-gray-900 dark:text-white"
@@ -127,18 +128,28 @@ export default function Project({
           </motion.ul>
         </div>
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-xl shadow-sm
-          transition-all duration-300
-          group-hover:scale-[1.01]
-          group-hover:-translate-x-2
-          group-hover:translate-y-2
-          group-hover:shadow-md
-          group-even:right-[initial] group-even:-left-40"
-        />
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt="Project I worked on"
+            quality={95}
+            className="absolute hidden sm:block top-1/2 -translate-y-1/2 right-6 w-[26rem] rounded-xl shadow-md border border-gray-200/50 dark:border-gray-700/30
+            transition-all duration-300
+            group-hover:scale-[1.03]
+            group-hover:shadow-lg
+            group-even:right-auto group-even:left-6"
+          />
+        ) : (
+          <div className="absolute hidden sm:flex items-center justify-center top-1/2 -translate-y-1/2 right-6 w-[26rem] h-[14.625rem] rounded-xl shadow-md border border-gray-200/50 dark:border-gray-700/30 bg-gray-100/50 dark:bg-gray-800/10 backdrop-blur-sm
+            transition-all duration-300
+            group-hover:scale-[1.03]
+            group-hover:shadow-lg
+            group-even:right-auto group-even:left-6">
+            {Icon && (
+              <Icon className="w-16 h-16 text-gray-400/80 dark:text-gray-500/80 animate-pulse" />
+            )}
+          </div>
+        )}
       </section>
     </motion.div>
   )

@@ -6,7 +6,7 @@ import { FaRss } from "react-icons/fa6"
 import { useLocale } from "next-intl"
 import { FiCopy, FiCheck, FiExternalLink } from "react-icons/fi"
 
-const RSS_LINK = 'https://www.mysticstars.cn/rss.xml'
+const RSS_LINK = 'https://blog.ybovo.com/rss.xml'
 const FOLLOW_LINK = 'https://app.follow.is/share/feeds/65706263472449536'
 
 export default function Subscribe() {

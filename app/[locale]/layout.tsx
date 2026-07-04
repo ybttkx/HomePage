@@ -9,6 +9,7 @@ import ThemeSwitch from "@/components/ThemeTwich"
 import LanguageSwitch from "@/components/LanguageSwitch"
 import { NextIntlClientProvider, useMessages } from "next-intl"
 import WidgetWrapper from "@/components/WidgetWrapper"
+import RouteSwitch from "@/components/RouteSwitch"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -37,6 +38,7 @@ export default function RootLayout({
               {children}
               <Footer />
               <WidgetWrapper>
+                <RouteSwitch />
                 <ThemeSwitch />
                 <LanguageSwitch />
               </WidgetWrapper>

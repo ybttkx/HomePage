@@ -6,10 +6,9 @@ import { useSectionInView } from "@/lib/hooks"
 import { motion } from "framer-motion"
 import SectionHeading from "./SectionHeading"
 import { useLocale, useTranslations } from "next-intl"
-import { FaPython } from "react-icons/fa";
 import { BiLogoGit } from "react-icons/bi";
 import { FaGithub, FaCode } from "react-icons/fa6";
-import { SiMinecraft, SiScratch } from "react-icons/si";
+import { SiClaudecode } from "react-icons/si";
 import useSound from "use-sound";
 
 const fadeInAnimationVariants = {
@@ -27,12 +26,10 @@ const fadeInAnimationVariants = {
 }
 
 const skillsWithIcons = [
-  { name: "Python", icon: <FaPython className="text-xl" /> },
   { name: "Web", icon: <FaCode className="text-xl" /> },
   { name: "Git", icon: <BiLogoGit className="text-xl" /> },
   { name: "Github", icon: <FaGithub className="text-xl" /> },
-  { name: "Minecraft", icon: <SiMinecraft className="text-xl" /> },
-  { name: "Scratch", icon: <SiScratch className="text-xl" /> },
+  { name: "VibeCoding", icon: <SiClaudecode className="text-xl" /> },
 ];
 
 export default function Skills() {

@@ -8,7 +8,7 @@ export default function NotFound() {
           <h1 className="font-semibold"> Something went wrong! </h1>
           <br />
           <br />
-          Try to visit https://me.mysticstars.cn again
+          Try to visit ybovo.com again
         </div>
       </body>
     </html>

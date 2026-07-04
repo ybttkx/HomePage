@@ -1,7 +1,7 @@
 {
     "IntroSection": {
         "hello_im": "Hi, my name is",
-        "name": "Mystic_Stars",
+        "name": "YIBAI",
         "short_intro": "",
         "download_cv": "Visit My Blog"
     },
@@ -18,7 +18,8 @@
         "Git": "Version Control",
         "Github": "Code Hosting",
         "Minecraft": "Game Development",
-        "Scratch": "Visual Programming"
+        "Scratch": "Visual Programming",
+        "VibeCoding": "AI-Assisted Vibe Coding"
     },
     "ProjectSection": {
         "view_all": "View All Projects",

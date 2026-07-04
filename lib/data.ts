@@ -10,6 +10,9 @@ import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
+import { MdConstruction } from "react-icons/md";
+import ios26Img from "@/public/ios26.png";
+
 export const links = [
     {
         name: "Home",
@@ -54,52 +57,54 @@ export const headerLanguageMap = {
     Subscribe: '订阅',
 }
 
-export type ProjectTags = typeof projectsData[number]["tags"];
+export type ProjectTags = string[];
 
-export const projectsData = [
+export const projectsData: {
+    title: string;
+    title_zh: string;
+    description: string;
+    desc_zh: string;
+    tags: string[];
+    imageUrl?: any;
+    icon?: any;
+    projectUrl: string;
+    demoUrl: string;
+}[] = [
     {
-        title: "Mystic Stars Blog",
-        title_zh: "Mystic Stars Blog",
-        description:
-            `Welcome to my personal blog, where I will be sharing my code and articles. Feel free to explore and enjoy your visit! 
-            `,
-        desc_zh: "这是我的个人博客，我将在这里发布我的代码和文章，欢迎访问。",
-        tags: ["Web", "Halo", "Blog"],
+        title: "iOS26 Style Portfolio",
+        title_zh: "iOS26 风格个人主页",
+        description: "A classic route-switching portfolio themed after iOS flat glassmorphism design. Features native ping latency speedtest and redirect matching for multiple server mirrors.",
+        desc_zh: "基于原生 HTML/CSS/JS 开发的经典拟物玻璃卡片风格个人主页，内置多线路连通性 RTT 延迟检测与智能重定向分发系统。",
+        tags: ["HTML", "CSS", "JavaScript", "Speedtest"],
+        imageUrl: ios26Img,
+        projectUrl: "https://github.com/ybttkx/myself",
+        demoUrl: "https://ybovo.com",
+    },
+    {
+        title: "YIBAI's Technical Blog",
+        title_zh: "毅白的个人博客",
+        description: "A personal technical and hobby journal recording coding tutorials, AI programming VibeCoding insights, and curated anime review checklists.",
+        desc_zh: "随缘更新的技术与兴趣生活博客，主要分享 Python、Web 前端开发、各类 AI 工具实践心得，以及个人的动漫追番记录清单。",
+        tags: ["Markdown", "RSS", "Tech Blog"],
         imageUrl: Blog,
-        projectUrl: 'https://github.com/chengzhongxue/halo-theme-hao',
-        demoUrl: 'https://www.mysticstars.cn',
+        projectUrl: "https://github.com/ybttkx/newblog",
+        demoUrl: "https://blog.ybovo.com",
     },
     {
-        title: "GHS 2024",
-        title_zh: 'GHS 2024',
-        description:
-            "The official website of GHS.",
-        desc_zh: "GHS的官方网站。",
-        tags: ["Html", "Css", "Javascript"],
-        imageUrl: GHS,
-        projectUrl: 'https://github.com/Mystic-stars/GHS',
-        demoUrl: 'https://www.ghs.red',
-    },
-    {
-        title: "TimeX",
-        title_zh: '星星图册——由TimeX驱动',
-        description:
-            "A concise, efficient, and visually appealing photo blog platform.",
-        desc_zh: "TimeX是一款简洁、高效、美观的基于Typecho的照片博客主题。",
-        tags: ["Typecho", "PHP", "CSS"],
-        imageUrl: TimeX,
-        projectUrl: 'https://github.com/Mystic-stars/TimeX',
-        demoUrl: 'https://plog.mysticstars.cn',
-    },
-]
+        title: "Next Project",
+        title_zh: "正在探索的新项目",
+        description: "Constantly learning front-end designs, Python applications, and AI integrations. Next project will be a fun Web game or an AI efficiency helper!",
+        desc_zh: "目前正在努力学习更多前端设计、Python 应用和 AI 知识，下一个项目计划是一个好玩的网页小游戏或 AI 效率辅助工具，敬请期待！",
+        tags: ["Python", "AI Integration", "Learning"],
+        projectUrl: "https://github.com/ybttkx",
+        demoUrl: "https://github.com/ybttkx",
+        icon: MdConstruction,
+    }
+];
 
 export const skillsData = [
-    "HTML",
-    "CSS",
-    "Python",
     "Web",
     "Git",
     "Github",
-    "Minecraft",
-    "Scratch",
+    "VibeCoding",
 ] 

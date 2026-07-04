@@ -6,8 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useSectionInView } from "@/lib/hooks"
 import { useLocale, useTranslations } from "next-intl"
 import { FaGamepad, FaCode, FaBook, FaEnvelope, FaGithub } from "react-icons/fa6"
-import { PiTelevisionSimpleFill } from "react-icons/pi"
-import { SiBilibili } from "react-icons/si"
+import { SiBilibili, SiClaudecode } from "react-icons/si"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -157,7 +156,7 @@ const AboutCard = ({
         <div className={`
           flex items-center gap-4
           ${expandOnHover ? 'justify-center w-full' : ''}
-          ${expandOnHover ? (isHovered ? 'h-12 mb-3' : 'h-full') : ''}
+          ${expandOnHover ? (isHovered ? 'h-8 mb-2' : 'h-full') : ''}
           transition-all duration-200
         `}>
           <div className={`
@@ -167,7 +166,7 @@ const AboutCard = ({
             rounded-xl
             backdrop-blur-md
             ${expandOnHover ? (
-              isHovered ? 'p-2.5 scale-95' : 'p-6 scale-100'
+              isHovered ? 'p-1.5 scale-95' : 'p-6 scale-100'
             ) : 'p-3.5'}
             group-hover:shadow-[0_4px_15px_rgb(0,0,0,0.03)]
             group-hover:border-${accentColor}/10
@@ -177,7 +176,7 @@ const AboutCard = ({
               text-${accentColor} dark:text-${accentColor}
               transition-all duration-200
               ${expandOnHover ? (
-                isHovered ? 'w-7 h-7' : 'w-12 h-12'
+                isHovered ? 'w-5 h-5' : 'w-12 h-12'
               ) : iconSizeClasses[size]}
               ${expandOnHover && isHovered ? 'rotate-0' : ''}
               ${expandOnHover && !isHovered ? 'hover:rotate-3' : ''}
@@ -191,7 +190,7 @@ const AboutCard = ({
             </h3>
           )}
         </div>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {(!expandOnHover || isHovered) && (
             <motion.div
               variants={contentVariants}
@@ -201,7 +200,7 @@ const AboutCard = ({
               className={`
                 text-gray-600/90 dark:text-gray-300/90
                 ${size === "large" ? "text-sm sm:text-base" : "text-sm"}
-                leading-relaxed
+                leading-relaxed whitespace-pre-line
                 ${expandOnHover ? 'text-center px-2 sm:px-3' : 'text-left'}
                 overflow-hidden
               `}
@@ -239,7 +238,7 @@ const GithubStatsCard = ({ index }: { index: number }) => (
     <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-gray-800/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none" />
     <div className="relative h-full flex flex-col">
       <Link 
-        href="https://github.com/Mystic-Stars" 
+        href="https://github.com/ybttkx" 
         target="_blank"
         className="flex items-center gap-3 mb-4"
       >
@@ -272,9 +271,9 @@ const GithubStatsCard = ({ index }: { index: number }) => (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(0,0,0,0.1),rgba(0,0,0,0))]" />
         <div className="w-full h-full p-4 sm:p-6">
           <img
-            src="https://raw.githubusercontent.com/Mystic-Stars/Mystic-Stars/output/github-contribution-grid-snake-dark.svg"
-            alt="GitHub Contribution Snake Animation"
-            className="w-full h-full object-contain dark:invert dark:brightness-95 dark:contrast-125 transition-all duration-300"
+            src="https://ghchart.rshah.org/ybttkx"
+            alt="GitHub Contributions"
+            className="w-full h-full object-contain transition-all duration-300"
           />
         </div>
       </div>
@@ -318,10 +317,10 @@ const MBTICard = ({ index }: { index: number }) => {
             backdrop-blur-md
             border border-white/10 dark:border-white/5
           ">
-            <span className="text-lg font-bold text-emerald">ENFJ</span>
+            <span className="text-lg font-bold text-emerald">ENFP</span>
           </div>
           <span className="text-lg font-medium bg-gradient-to-br from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
-            {activeLocale === "zh" ? t("title") : "The Protagonist"}
+            {activeLocale === "zh" ? t("title") : "The Campaigner"}
           </span>
         </div>
         <div className="
@@ -340,16 +339,16 @@ const MBTICard = ({ index }: { index: number }) => {
               {activeLocale === "zh" ? t("personality_traits") : "Personality Traits:"}
             </div>
             <ul className="text-sm text-gray-500 dark:text-gray-400 text-left list-disc list-inside space-y-1">
-              <li>{activeLocale === "zh" ? t("traits.trait1") : "Charismatic Leader"}</li>
-              <li>{activeLocale === "zh" ? t("traits.trait2") : "Natural Teacher"}</li>
+              <li>{activeLocale === "zh" ? t("traits.trait1") : "Enthusiastic"}</li>
+              <li>{activeLocale === "zh" ? t("traits.trait2") : "Creative"}</li>
               <li>{activeLocale === "zh" ? t("traits.trait3") : "Empathetic"}</li>
-              <li>{activeLocale === "zh" ? t("traits.trait4") : "Reliable Idealist"}</li>
+              <li>{activeLocale === "zh" ? t("traits.trait4") : "Free-spirited"}</li>
             </ul>
           </div>
           <div className="absolute right-0 w-[45%] z-20 flex items-end">
             <img
-              src="/enfj.svg"
-              alt="ENFJ Personality"
+              src="/enfp.svg"
+              alt="ENFP Personality"
               className="w-full object-contain transition-all duration-300"
               style={{
                 transform: 'scale(0.98)',
@@ -360,8 +359,8 @@ const MBTICard = ({ index }: { index: number }) => {
         </div>
         <Link 
           href={activeLocale === "zh" 
-            ? "https://www.16personalities.com/ch/enfj-%E4%BA%BA%E6%A0%BC"
-            : "https://www.16personalities.com/enfj-personality"
+            ? "https://www.16personalities.com/ch/enfp-%E4%BA%BA%E6%A0%BC"
+            : "https://www.16personalities.com/enfp-personality"
           }
           target="_blank" 
           rel="noopener noreferrer"
@@ -419,8 +418,8 @@ export default function About() {
       icon: FaCode,
       title: activeLocale === "zh" ? "关于我" : "About Me",
       content: activeLocale === "zh" 
-        ? "你好！我是一名来自成都的学生开发者 👋 热爱编程与网站开发，专注于创造优雅的数字体验。熟悉 Python 等语言基本开发，正在努力学习更多前端知识。喜欢写自己的博客，在分享中创造价值。"
-        : "Hi! I'm a student developer from Chengdu 👋 Passionate about coding and web development. Familiar with Python and learning front-end development. Love sharing through my blog.",
+        ? "你好！我是一名来自云南的中学生 👋 热爱编程与网站开发，熟悉 VibeCoding，正在努力学习更多 AI 知识。有自己的博客 (随缘更新)，在创造中进步。"
+        : "Hi! I'm a middle school student from Yunnan, China 👋 Passionate about coding and web development. Familiar with VibeCoding and currently learning more about AI. Have my own blog (updated occasionally) and progress through creation.",
       size: "large" as const,
       aspectRatio: "wide" as const,
       priority: "high" as const,
@@ -428,26 +427,26 @@ export default function About() {
     },
     {
       type: "image",
-      image: "https://bu.dusays.com/2024/05/18/6648acfe0db3b.png",
+      image: "/tx.jpg",
       accentColor: "pink"
     },
     {
       icon: FaGamepad,
-      title: "Minecraft",
+      title: activeLocale === "zh" ? "GAME🎮" : "GAME🎮",
       content: activeLocale === "zh"
-        ? "游戏ID：Mystic_Stars ⚔️ 热爱生存建造与小游戏！游玩 Hypixel 的 Bedwars, Skywars 等小游戏，和朋友们在hjmc中游玩生存。"
-        : "Game ID: Mystic_Stars ⚔️ Love survival and mini-games! Playing Bedwars, Skywars on Hypixel and survival on hjmc.",
+        ? "热爱玩开放世界、FPS、模拟类游戏。如果想找我打游戏可以随时联系我！"
+        : "Love playing Open World, FPS, and Simulation games. Feel free to contact me if you want to play games together!",
       size: "medium" as const,
       aspectRatio: "square" as const,
       priority: "medium" as const,
       accentColor: "emerald"
     },
     {
-      icon: PiTelevisionSimpleFill,
-      title: activeLocale === "zh" ? "二次元" : "Anime",
+      icon: SiClaudecode,
+      title: "Claude",
       content: activeLocale === "zh"
-        ? "动漫爱好者 🌸 在博客中可以找到我追过的番剧，涵盖日漫国漫，以及多个主题。生命不息，追番不止！"
-        : "Anime enthusiast 🌸 Check out my watched anime list on my blog! Covering both Japanese and Chinese animations.",
+        ? "Claude 重度依赖症患者\n已被 Anthropic 封 2 个号\n无奈投奔 Codex"
+        : "Claude heavy dependency\n2 accounts banned by Anthropic\nForced to switch to Codex",
       size: "small" as const,
       expandOnHover: true,
       priority: "low" as const,
@@ -462,25 +461,25 @@ export default function About() {
       size: "medium" as const,
       priority: "medium" as const,
       accentColor: "sky",
-      href: "https://www.mysticstars.cn"
+      href: "https://blog.ybovo.com/"
     },
     {
       icon: SiBilibili,
       title: "Bilibili",
       content: activeLocale === "zh"
-        ? "欢迎访问我的B站频道 📺 分享更多有趣的编程内容和游戏视频，从兴趣爱好出发制作视频，将想法通过Bilibili传递到世界更多角落。"
+        ? "欢迎访问我的B站频道 📺 分享更多有趣的编程内容 and 游戏视频，从兴趣爱好出发制作视频，将想法通过Bilibili传递到世界更多角落。"
         : "Welcome to my Bilibili channel 📺 Sharing programming content and gaming videos. Creating from passion!",
       size: "medium" as const,
       priority: "medium" as const,
       accentColor: "blue",
-      href: "https://space.bilibili.com/2007491365"
+      href: "https://space.bilibili.com/2081852873"
     },
     {
       icon: FaEnvelope,
       title: activeLocale === "zh" ? "联系我" : "Contact",
       content: activeLocale === "zh"
-        ? "📮 1278347583@qq.com · 期待与你交流！无论是技术讨论、项目合作还是交个朋友，都欢迎通过邮件联系我。也可以在我的社交媒体上找到我。"
-        : "📮 1278347583@qq.com · Feel free to reach out for tech discussions, collaborations or just making friends!",
+        ? "📮 ovo@ybovo.com\n无论技术讨论还是交个朋友，都欢迎致信联系我！"
+        : "📮 ovo@ybovo.com\nFeel free to reach out for tech discussions, collaborations or just making friends!",
       size: "small" as const,
       expandOnHover: true,
       priority: "low" as const,

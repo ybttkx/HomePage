@@ -9,8 +9,8 @@ import { isMobileDevice } from "@/lib/utils"
 import Subscribe from "@/components/Subscribe"
 
 export const metadata = {
-  title: "MysticStars | Homepage",
-  description: "A student developer's homepage.",
+  title: "毅白 · YIBAI | 个人主页",
+  description: "毅白 YIBAI 的个人主页，记录关于技术、生活与编程的思考。",
 }
 
 export default function Home() {

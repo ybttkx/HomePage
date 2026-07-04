@@ -44,7 +44,7 @@ export default function Projects() {
         <Link
           className="group tracking-wide font-semibold text-pink dark:text-yellow w-full flex gap-1 items-center justify-center mt-12 hover:text-pink-600 dark:hover:text-yellow-400 transition-colors duration-200"
           target="_blank"
-          href="https://github.com/Mystic-stars?tab=repositories"
+          href="https://github.com/ybttkx?tab=repositories"
         >
           {t("view_all")}
           <motion.span
