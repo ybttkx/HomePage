@@ -1,6 +1,11 @@
 import React from "react"
+import { headers } from "next/headers"
 
 export default function Footer() {
+  const headersList = headers()
+  const isVercel = headersList.has("x-vercel-id")
+  const isEdgeOne = headersList.has("cf-ray")
+
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
       <small className="mb-2 block text-xs">
@@ -9,8 +14,25 @@ export default function Footer() {
       <p className="text-xs">
         <span className="font-semibold">About this website:</span> built with
         React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
-        Framer Motion, Vercel hosting.
+        Framer Motion, {isVercel ? "Vercel" : isEdgeOne ? "EdgeOne" : "Vercel"} hosting.
       </p>
+      <div className="mt-2 flex items-center justify-center gap-2 text-xs">
+        <a
+          href="https://github.com/Mystic-Stars/HomePage"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-gray-700 dark:hover:text-gray-300 transition"
+        >
+          原作者GitHub仓库
+        </a>
+        {isEdgeOne && (
+          <img
+            src="/SVG/ipv6-s1.svg"
+            alt="本站支持IPv6访问"
+            className="h-5 w-auto"
+          />
+        )}
+      </div>
     </footer>
   )
 }
