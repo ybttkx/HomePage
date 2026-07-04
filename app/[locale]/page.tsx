@@ -8,9 +8,14 @@ import { isMobileDevice } from "@/lib/utils"
 // import Contact from "@/components/Contact"
 import Subscribe from "@/components/Subscribe"
 
+export const runtime = 'edge';
+
 export const metadata = {
   title: "毅白 · YIBAI | 个人主页",
   description: "毅白 YIBAI 的个人主页，记录关于技术、生活与编程的思考。",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function Home() {
