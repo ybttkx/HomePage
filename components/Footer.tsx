@@ -3,7 +3,7 @@ import { headers } from "next/headers"
 import { FaCloudflare } from "react-icons/fa"
 import { IoLogoVercel } from "react-icons/io5"
 
-export default function Footer() {
+export default async function Footer() {
   const headersList = headers()
   const isVercel = headersList.has("x-vercel-id")
   const isEdgeOne = headersList.has("eo-connecting-ip") || headersList.has("eo-log-uuid")
@@ -15,6 +15,23 @@ export default function Footer() {
              headersList.get("x-real-ip") ||
              headersList.get("x-forwarded-for")?.split(",")[0].trim() ||
              "127.0.0.1"
+
+  const cfRay = headersList.get("cf-ray")
+  const coloCode = cfRay && cfRay.includes("-") ? cfRay.split("-")[1].toUpperCase() : ""
+
+  // Fetch Server Outbound IP (Data Center Node IP) with Next.js edge caching (1 hour)
+  let serverIp = "未知"
+  try {
+    const res = await fetch("https://icanhazip.com/", {
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(1000),
+    })
+    if (res.ok) {
+      serverIp = (await res.text()).trim()
+    }
+  } catch (e) {
+    // Silent fallback
+  }
 
   return (
     <footer className="mb-10 px-4 text-center text-gray-500 text-sm">
@@ -29,7 +46,9 @@ export default function Footer() {
       
       {/* CDN Node IP & Provider display line */}
       <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-1.5 text-sm font-medium text-gray-500/80 dark:text-gray-400/80">
-        <span>您访问的 CDN 节点 IP 是: <span className="font-mono font-bold text-pink dark:text-yellow">{ip}</span></span>
+        <span>您访问的 CDN 节点 IP 是: <span className="font-mono font-bold text-pink dark:text-yellow">{serverIp}</span></span>
+        <span className="hidden sm:inline text-gray-300 dark:text-gray-700">|</span>
+        <span>您的客户端 IP 是: <span className="font-mono font-bold text-pink dark:text-yellow">{ip}</span></span>
         <span className="hidden sm:inline text-gray-300 dark:text-gray-700">|</span>
         <div className="flex items-center gap-1">
           <span>属于:</span>
@@ -42,7 +61,7 @@ export default function Footer() {
           {isCloudflare && (
             <div className="flex items-center gap-1 text-[#f38020] font-bold">
               <FaCloudflare className="w-4 h-4" />
-              <span>Cloudflare</span>
+              <span>Cloudflare {coloCode ? `(${coloCode})` : ""}</span>
             </div>
           )}
           {isEdgeOne && (
