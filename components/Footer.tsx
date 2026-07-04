@@ -27,17 +27,23 @@ export default function Footer() {
         >
           原作者GitHub仓库
         </a>
-        {showIpv6 && (
-          <div className="flex items-center gap-1.5 ml-1 text-[11px] text-gray-500 font-medium">
+      </div>
+      {showIpv6 && (
+        <div className="mt-3 flex justify-center">
+          <a
+            href="https://www.itdog.cn/ping_ipv6/eo.ybovo.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 active:scale-95 transition inline-block"
+          >
             <img
               src="/SVG/ipv6-s1.svg"
               alt="本站支持IPv6访问"
-              className="h-4 w-auto"
+              className="h-6 w-auto"
             />
-            <span>本站支持IPv6</span>
-          </div>
-        )}
-      </div>
+          </a>
+        </div>
+      )}
     </footer>
   )
 }
