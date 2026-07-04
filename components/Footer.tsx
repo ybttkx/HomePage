@@ -31,7 +31,7 @@ export default function Footer() {
       {showIpv6 && (
         <div className="mt-3 flex justify-center">
           <a
-            href="https://www.itdog.cn/ping_ipv6/eo.ybovo.com"
+            href="https://ipw.wsmdn.top/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-80 active:scale-95 transition inline-block"

@@ -1,4 +1,8 @@
 {
+    "Metadata": {
+        "title": "YIBAI | Personal Homepage",
+        "description": "YIBAI's personal homepage, recording thoughts on technology, life, and programming."
+    },
     "IntroSection": {
         "hello_im": "Hi, my name is",
         "name": "YIBAI",

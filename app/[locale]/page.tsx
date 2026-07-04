@@ -8,12 +8,25 @@ import { isMobileDevice } from "@/lib/utils"
 // import Contact from "@/components/Contact"
 import Subscribe from "@/components/Subscribe"
 
-export const metadata = {
-  title: "毅白 · YIBAI | 个人主页",
-  description: "毅白 YIBAI 的个人主页，记录关于技术、生活与编程的思考。",
-  icons: {
-    icon: "/favicon.ico",
-  },
+import { getTranslations } from "next-intl/server"
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale, namespace: "Metadata" })
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `https://ybovo.com/${locale}`,
+      languages: {
+        "zh": "https://ybovo.com/zh",
+        "en": "https://ybovo.com/en",
+      },
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
+  }
 }
 
 export default function Home() {
