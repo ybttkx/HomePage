@@ -1,5 +1,7 @@
 import React from "react"
 import { headers } from "next/headers"
+import { FaCloudflare } from "react-icons/fa"
+import { IoLogoVercel } from "react-icons/io5"
 
 export default function Footer() {
   const headersList = headers()
@@ -8,17 +10,58 @@ export default function Footer() {
   const isCloudflare = headersList.has("cf-ray")
   const showIpv6 = isEdgeOne || isCloudflare
 
+  const ip = headersList.get("cf-connecting-ip") ||
+             headersList.get("eo-connecting-ip") ||
+             headersList.get("x-real-ip") ||
+             headersList.get("x-forwarded-for")?.split(",")[0].trim() ||
+             "127.0.0.1"
+
   return (
-    <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">
+    <footer className="mb-10 px-4 text-center text-gray-500 text-sm">
+      <small className="mb-2 block text-sm">
         &copy; 2024 - 2026 毅白 · YIBAI.
       </small>
-      <p className="text-xs">
+      <p className="text-sm">
         <span className="font-semibold">About this website:</span> built with
         React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
         Framer Motion, {isVercel ? "Vercel" : isEdgeOne ? "EdgeOne" : isCloudflare ? "Cloudflare" : "Vercel"} hosting.
       </p>
-      <div className="mt-2 flex items-center justify-center gap-2 text-xs">
+      
+      {/* CDN Node IP & Provider display line */}
+      <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-1.5 text-sm font-medium text-gray-500/80 dark:text-gray-400/80">
+        <span>您访问的 CDN 节点 IP 是: <span className="font-mono font-bold text-pink dark:text-yellow">{ip}</span></span>
+        <span className="hidden sm:inline text-gray-300 dark:text-gray-700">|</span>
+        <div className="flex items-center gap-1">
+          <span>属于:</span>
+          {isVercel && (
+            <div className="flex items-center gap-1 text-black dark:text-white font-semibold">
+              <IoLogoVercel className="w-3.5 h-3.5" />
+              <span>Vercel</span>
+            </div>
+          )}
+          {isCloudflare && (
+            <div className="flex items-center gap-1 text-[#f38020] font-bold">
+              <FaCloudflare className="w-4 h-4" />
+              <span>Cloudflare</span>
+            </div>
+          )}
+          {isEdgeOne && (
+            <div className="flex items-center gap-1 text-blue-500 dark:text-blue-400 font-bold">
+              <img
+                src="/SVG/edgeone.svg"
+                alt="EdgeOne"
+                className="h-3.5 w-auto dark:brightness-125"
+              />
+              <span>EdgeOne</span>
+            </div>
+          )}
+          {!isVercel && !isCloudflare && !isEdgeOne && (
+            <span className="text-gray-400 dark:text-gray-600 font-mono">本地开发线路</span>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-2 flex items-center justify-center gap-2 text-sm">
         <a
           href="https://github.com/Mystic-Stars/HomePage"
           target="_blank"
@@ -45,7 +88,7 @@ export default function Footer() {
         </div>
       )}
       {isVercel && (
-        <div className="mt-3 flex flex-col items-center gap-1.5 text-[11px] text-gray-500 font-medium">
+        <div className="mt-3 flex flex-col items-center gap-1.5 text-sm text-gray-500 font-medium">
           <p>本线路不支持ipv6，如有需要可点击右侧WiFi图标切换cloudflare或edgeone</p>
           <a
             href="https://ipw.wsmdn.top/"
