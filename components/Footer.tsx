@@ -4,7 +4,9 @@ import { headers } from "next/headers"
 export default function Footer() {
   const headersList = headers()
   const isVercel = headersList.has("x-vercel-id")
-  const isEdgeOne = headersList.has("cf-ray")
+  const isEdgeOne = headersList.has("eo-connecting-ip") || headersList.has("eo-log-uuid")
+  const isCloudflare = headersList.has("cf-ray")
+  const showIpv6 = isEdgeOne || isCloudflare
 
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
@@ -14,7 +16,7 @@ export default function Footer() {
       <p className="text-xs">
         <span className="font-semibold">About this website:</span> built with
         React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
-        Framer Motion, {isVercel ? "Vercel" : isEdgeOne ? "EdgeOne" : "Vercel"} hosting.
+        Framer Motion, {isVercel ? "Vercel" : isEdgeOne ? "EdgeOne" : isCloudflare ? "Cloudflare" : "Vercel"} hosting.
       </p>
       <div className="mt-2 flex items-center justify-center gap-2 text-xs">
         <a
@@ -25,12 +27,15 @@ export default function Footer() {
         >
           原作者GitHub仓库
         </a>
-        {isEdgeOne && (
-          <img
-            src="/SVG/ipv6-s1.svg"
-            alt="本站支持IPv6访问"
-            className="h-5 w-auto"
-          />
+        {showIpv6 && (
+          <div className="flex items-center gap-1.5 ml-1 text-[11px] text-gray-500 font-medium">
+            <img
+              src="/SVG/ipv6-s1.svg"
+              alt="本站支持IPv6访问"
+              className="h-4 w-auto"
+            />
+            <span>本站支持IPv6</span>
+          </div>
         )}
       </div>
     </footer>
