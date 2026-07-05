@@ -19,18 +19,44 @@ export default async function Footer() {
   const cfRay = headersList.get("cf-ray")
   const coloCode = cfRay && cfRay.includes("-") ? cfRay.split("-")[1].toUpperCase() : ""
 
-  // Fetch Server Outbound IP (Data Center Node IP) with Next.js edge caching (1 hour)
+  const host = headersList.get("host") || "ybovo.com"
+  const cleanHost = host.split(":")[0]
+  const isClientIpv6 = ip.includes(":")
+
+  // Fetch Server Anycast IP using DoH based on client connection type (A/AAAA)
   let serverIp = "未知"
   try {
-    const res = await fetch("https://icanhazip.com/", {
-      next: { revalidate: 3600 },
-      signal: AbortSignal.timeout(1000),
-    })
-    if (res.ok) {
-      serverIp = (await res.text()).trim()
+    if (cleanHost !== "localhost" && cleanHost !== "127.0.0.1") {
+      const type = isClientIpv6 ? "AAAA" : "A"
+      const dnsRes = await fetch(`https://cloudflare-dns.com/dns-query?name=${cleanHost}&type=${type}`, {
+        headers: { accept: "application/dns-json" },
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(1000),
+      })
+      if (dnsRes.ok) {
+        const json = await dnsRes.json()
+        if (json.Answer && json.Answer.length > 0) {
+          const targetType = isClientIpv6 ? 28 : 1 // 28 is AAAA, 1 is A
+          const records = json.Answer.filter((ans: any) => ans.type === targetType)
+          if (records.length > 0) {
+            serverIp = records[0].data
+          }
+        }
+      }
+    } else {
+      serverIp = isClientIpv6 ? "::1" : "127.0.0.1"
     }
   } catch (e) {
-    // Silent fallback
+    // Fallback if DoH fails
+    try {
+      const res = await fetch("https://icanhazip.com/", {
+        next: { revalidate: 3600 },
+        signal: AbortSignal.timeout(1000),
+      })
+      if (res.ok) {
+        serverIp = (await res.text()).trim()
+      }
+    } catch (_) {}
   }
 
   return (
