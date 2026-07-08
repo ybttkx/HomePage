@@ -21,7 +21,38 @@ export async function generateMetadata({ params: { locale } }: { params: { local
       languages: {
         "zh": "https://ybovo.com/zh",
         "en": "https://ybovo.com/en",
+        "x-default": "https://ybovo.com/en",
       },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `https://ybovo.com/${locale}`,
+      siteName: "YIBAI",
+      locale: locale === "zh" ? "zh_CN" : "en_US",
+      type: "website",
+      images: [
+        {
+          url: "https://ybovo.com/profile.png",
+          width: 500,
+          height: 500,
+          alt: "YIBAI Profile",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["https://ybovo.com/profile.png"],
     },
     icons: {
       icon: "/favicon.ico",
@@ -29,11 +60,29 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   }
 }
 
-export default function Home() {
+export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const isMobile = isMobileDevice()
+  const t = await getTranslations({ locale, namespace: "Metadata" })
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": locale === "zh" ? "毅白 · YIBAI" : "YIBAI",
+    "url": `https://ybovo.com/${locale}`,
+    "image": "https://ybovo.com/profile.png",
+    "sameAs": [
+      "https://github.com/ybttkx",
+    ],
+    "jobTitle": "Software Engineer",
+    "description": t("description"),
+  }
 
   return (
     <main className="flex flex-col items-center justify-center px-4 overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Intro />
       <SectionDivider />
       <About />
