@@ -3,9 +3,6 @@ import SectionDivider from "@/components/SectionDivider"
 import About from "@/components/About"
 import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
-// import Experience from "@/components/Experience"
-import { isMobileDevice } from "@/lib/utils"
-// import Contact from "@/components/Contact"
 import Subscribe from "@/components/Subscribe"
 
 import { getTranslations } from "next-intl/server"
@@ -61,7 +58,6 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 }
 
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
-  const isMobile = isMobileDevice()
   const t = await getTranslations({ locale, namespace: "Metadata" })
 
   const jsonLd = {
@@ -89,8 +85,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <Projects />
       <Skills />
       <Subscribe />
-      {/* <Experience isMobile={isMobile} /> */}      
-      {/* <Contact /> */}
     </main>
   )
 }
