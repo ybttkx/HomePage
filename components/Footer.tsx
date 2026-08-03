@@ -5,10 +5,6 @@ import { IoLogoVercel } from "react-icons/io5"
 
 export default async function Footer() {
   const headersList = headers()
-  const isVercel = headersList.has("x-vercel-id")
-  const isEdgeOne = headersList.has("eo-connecting-ip") || headersList.has("eo-log-uuid")
-  const isCloudflare = headersList.has("cf-ray")
-  const showIpv6 = isEdgeOne || isCloudflare
 
   const ip = headersList.get("cf-connecting-ip") ||
              headersList.get("eo-connecting-ip") ||
