@@ -11,6 +11,11 @@ const routes = [
     url: "https://ybovo.com",
   },
   {
+    name: "三网优化线路",
+    name_en: "CN2/Optimized Route",
+    url: "https://vip.ybovo.com",
+  },
+  {
     name: "全球线路 (Cloudflare)",
     name_en: "Global Route (CF)",
     url: "https://cf.ybovo.com",

@@ -23,6 +23,12 @@ export default async function Footer() {
   const cleanHost = host.split(":")[0]
   const isClientIpv6 = ip.includes(":")
 
+  const isVip = cleanHost.includes("vip")
+  const isVercel = !isVip && headersList.has("x-vercel-id")
+  const isEdgeOne = !isVip && (headersList.has("eo-connecting-ip") || headersList.has("eo-log-uuid"))
+  const isCloudflare = !isVip && headersList.has("cf-ray")
+  const showIpv6 = isEdgeOne || isCloudflare || isVip
+
   // Fetch Server Anycast IP using DoH based on client connection type (A/AAAA)
   let serverIp = "未知"
   try {
@@ -78,6 +84,16 @@ export default async function Footer() {
         <span className="hidden sm:inline text-gray-300 dark:text-gray-700">|</span>
         <div className="flex items-center gap-1">
           <span>属于:</span>
+          {isVip && (
+            <div className="flex items-center gap-1.5 font-bold text-amber-600 dark:text-amber-400">
+              <img
+                src="/SVG/vip.png"
+                alt="三网优化"
+                className="h-4 w-auto object-contain"
+              />
+              <span>三网优化线路</span>
+            </div>
+          )}
           {isVercel && (
             <div className="flex items-center gap-1 text-black dark:text-white font-semibold">
               <IoLogoVercel className="w-3.5 h-3.5" />
@@ -100,7 +116,7 @@ export default async function Footer() {
               <span>EdgeOne</span>
             </div>
           )}
-          {!isVercel && !isCloudflare && !isEdgeOne && (
+          {!isVip && !isVercel && !isCloudflare && !isEdgeOne && (
             <span className="text-gray-400 dark:text-gray-600 font-mono">本地开发线路</span>
           )}
         </div>
