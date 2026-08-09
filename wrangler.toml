@@ -7,3 +7,12 @@ main = ".open-next/worker.js"
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+
+# 赞助功能存储（Cloudflare KV）
+[[kv_namespaces]]
+binding = "SPONSORS_KV"
+id = "9ba9ad7ef46943fa87f540e5aa00cb81"
+
+[vars]
+# 码支付商户 ID（非机密，随支付请求暴露）
+CODEPAY_PID = "1000"

@@ -9,7 +9,8 @@ import React, {
 } from "react"
 import { links } from "@/lib/data"
 
-export type SectionName = (typeof links)[number]["name"]
+// 排除独立页面链接（Sponsor），不参与锚点 section 高亮
+export type SectionName = Exclude<(typeof links)[number]["name"], "Sponsor">
 type ActionSectionContextProviderProps = {
   children: React.ReactNode
 }

@@ -39,6 +39,12 @@ export const links = [
         hash: "#subscribe",
         name_zh: "订阅",
     },
+    {
+        // 独立页面链接（非锚点 section）
+        name: "Sponsor",
+        path: "/sponsor",
+        name_zh: "赞助",
+    },
     // {
     //     name: "Experience",
     //     hash: "#experience",
@@ -55,6 +61,7 @@ export const headerLanguageMap = {
     Projects: '我的项目',
     Skills: '我的技能',
     Subscribe: '订阅',
+    Sponsor: '赞助',
 }
 
 export type ProjectTags = string[];
