@@ -31,9 +31,9 @@ export async function POST(request: Request) {
 
   if (!name)
     return NextResponse.json({ ok: false, error: "请填写昵称" }, { status: 400 })
-  if (!Number.isFinite(amount) || amount < 1 || amount > 1000)
+  if (!Number.isFinite(amount) || amount < 0.01 || amount > 1000)
     return NextResponse.json(
-      { ok: false, error: "金额需在 1~1000 元之间" },
+      { ok: false, error: "金额需在 0.01~1000 元之间" },
       { status: 400 }
     )
   if (!VALID_METHODS.includes(method))

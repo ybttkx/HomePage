@@ -82,7 +82,7 @@ export default function AdminPanel() {
     if (
       !addName.trim() ||
       !Number.isFinite(amount) ||
-      amount < 1 ||
+      amount < 0.01 ||
       amount > 1000
     ) {
       setError(tS("error_amount_invalid"))
@@ -251,7 +251,7 @@ export default function AdminPanel() {
             value={addAmount}
             onChange={(e) => setAddAmount(e.target.value)}
             type="number"
-            min={1}
+            min={0.01}
             max={1000}
             step="0.01"
             placeholder={tS("amount")}

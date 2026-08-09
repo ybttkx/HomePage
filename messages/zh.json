@@ -67,7 +67,7 @@
         "wall_empty": "还没有赞助，来做第一个赞助的人吧",
         "wall_load_failed": "当前线路不支持赞助功能，请切换到 Cloudflare 线路",
         "error_name_required": "请填写昵称",
-        "error_amount_invalid": "金额需在 1~1000 元之间",
+        "error_amount_invalid": "金额需在 0.01~1000 元之间",
         "error_create_failed": "下单失败：",
         "error_platform": "当前平台不支持赞助功能（仅 Cloudflare 线路可用）"
     },

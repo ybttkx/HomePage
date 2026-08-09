@@ -33,7 +33,7 @@ export default function SponsorForm() {
     }
     if (
       !Number.isFinite(finalAmount) ||
-      finalAmount < 1 ||
+      finalAmount < 0.01 ||
       finalAmount > 1000
     ) {
       setError(t("error_amount_invalid"))
@@ -149,7 +149,7 @@ export default function SponsorForm() {
           </div>
           <input
             type="number"
-            min={1}
+            min={0.01}
             max={1000}
             step="0.01"
             value={customAmount}

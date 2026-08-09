@@ -53,7 +53,7 @@
         "wall_empty": "No sponsors yet. Be the first one!",
         "wall_load_failed": "Sponsorship is unavailable on this route. Please switch to the Cloudflare route",
         "error_name_required": "Please enter a nickname",
-        "error_amount_invalid": "Amount must be between 1 and 1000 CNY",
+        "error_amount_invalid": "Amount must be between 0.01 and 1000 CNY",
         "error_create_failed": "Failed to create order:",
         "error_platform": "Sponsorship is unavailable on this platform (Cloudflare route only)"
     },
