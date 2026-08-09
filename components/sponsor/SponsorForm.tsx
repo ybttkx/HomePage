@@ -80,10 +80,11 @@ export default function SponsorForm() {
         <h3 className="text-xl font-medium text-gray-800 dark:text-white">
           {t("wechat_pending_title")}
         </h3>
+        {/* 微信收款码：h-auto 保持原始宽高比，避免固定高度导致图片被压扁 */}
         <img
-          src="/wechat-qr.png"
+          src="/wechat-qr.jpg"
           alt="WeChat QR"
-          className="w-56 h-56 rounded-xl border border-gray-200 dark:border-gray-700"
+          className="w-56 h-auto rounded-xl border border-gray-200 dark:border-gray-700"
         />
         <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-sm">
           {t("wechat_pending_notice")}
