@@ -6,7 +6,7 @@
     "IntroSection": {
         "hello_im": "Hi, my name is",
         "name": "YIBAI",
-        "short_intro": "",
+        "short_intro": "Passionate about life and programming!",
         "download_cv": "Visit My Blog"
     },
     "SectionName": {
@@ -15,6 +15,20 @@
         "projects": "Projects",
         "skills": "Skills",
         "subscribe": "Subscribe"
+    },
+    "AboutSection": {
+        "desc": "Hello! 🙋‍♂️ I am a student from China, currently studying in Chengdu 📚. I love programming 💻, familiar with Python and web development. You can visit my blog 🌐 via the button above to learn more about my story and tech articles. I love playing Minecraft 🎮 (IGN: Mystic_Stars), including Survival, Mini-games, and PVP. I'm also an anime lover 🌸. If you'd like to learn more, feel free to visit my Bilibili channel 📽️, GitHub profile 💾, or email me at 📮 ovo@ybovo.com."
+    },
+    "MBTISection": {
+        "title": "Campaigner (ENFP)",
+        "personality_traits": "Personality Traits:",
+        "traits": {
+            "trait1": "Enthusiastic",
+            "trait2": "Creative",
+            "trait3": "Empathetic",
+            "trait4": "Free-spirited"
+        },
+        "learn_more": "Learn more about Campaigner on 16personalities"
     },
     "SkillSection": {
         "Python": "Python Programming",
@@ -33,6 +47,7 @@
     "Sponsor": {
         "title": "Sponsor",
         "subtitle": "If you find this site useful, feel free to sponsor and support my creation",
+        "description": "Support YIBAI's creative work and open source projects.",
         "form_title": "Sponsor Me",
         "nickname": "Nickname",
         "nickname_placeholder": "Your nickname (shown on the sponsor wall)",

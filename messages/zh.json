@@ -1,89 +1,90 @@
 {
-    "Metadata": {
-        "title": "毅白 · YIBAI | 个人主页",
-        "description": "毅白 YIBAI 的个人主页，记录关于技术、生活与编程的思考。"
+  "Metadata": {
+    "title": "毅白 · YIBAI | 个人主页",
+    "description": "毅白 YIBAI 的个人主页，记录关于技术、生活与编程的思考。"
+  },
+  "IntroSection": {
+    "hello_im": "你好，我是",
+    "name": "毅白 · YIBAI",
+    "short_intro": "一名热爱生活，热爱编程的人！",
+    "download_cv": "访问我的博客"
+  },
+  "SectionName": {
+    "about": "关于我",
+    "experience": "我的经历",
+    "projects": "我的项目",
+    "skills": "我的技能",
+    "subscribe": "订阅"
+  },
+  "AboutSection": {
+    "desc": "你好，🙋‍♂️我是一名来自中国的学生，现在正在成都学习📚。 我热爱编程💻，熟悉Python等编程语言，也热衷于网站开发。你可以通过上方按钮访问我的博客🌐，在那里，我会分享更多有关我自己的故事及更多技术内容。 我喜欢游玩Minecraft🎮，我的游戏名称是：Mystic_Stars，我游玩生存，小游戏以及PVP。我也是一名二次元爱好者🌸，在我的博客里面记录了我看过的和喜欢的番剧📺。 如果你想了解更多有关我的内容，可以通过上方按钮访问我的Bilibili频道📽️和Github主页💾，或者致邮📮ovo@ybovo.com。"
+  },
+  "MBTISection": {
+    "title": "竞选者",
+    "personality_traits": "性格特征：",
+    "traits": {
+      "trait1": "热情洋溢",
+      "trait2": "富有创意",
+      "trait3": "富有同理心",
+      "trait4": "自由随性"
     },
-    "IntroSection": {
-        "hello_im": "你好，我是",
-        "name": "毅白 · YIBAI",
-        "short_intro": "一名热爱生活，热爱编程的人！",
-        "download_cv": "访问我的博客"
-    },
-    "SectionName": {
-        "about": "关于我",
-        "experience": "我的经历",
-        "projects": "我的项目",
-        "skills": "我的技能",
-        "subscribe": "订阅"
-    },
-    "AboutSection": {
-        "desc": "你好，🙋‍♂️我是一名来自中国的学生，现在正在成都学习📚。 我热爱编程💻，熟悉Python等编程语言，也热衷于网站开发。你可以通过上方按钮访问我的博客🌐，在那里，我会分享更多有关我自己的故事及更多技术内容。 我喜欢游玩Minecraft🎮，我的游戏名称是：Mystic_Stars，我游玩生存，小游戏以及PVP。我也是一名二次元爱好者🌸，在我的博客里面记录了我看过的和喜欢的番剧📺。 如果你想了解更多有关我的内容，可以通过上方按钮访问我的Bilibili频道📽️和Github主页💾，或者致邮📮ovo@ybovo.com。"
-    },
-    "MBTISection": {
-        "title": "竞选者",
-        "personality_traits": "性格特征：",
-        "traits": {
-            "trait1": "热情洋溢",
-            "trait2": "富有创意",
-            "trait3": "富有同理心",
-            "trait4": "自由随性"
-        },
-        "learn_more": "在 16personalities 了解更多关于竞选者性格"
-    },
-    "SkillSection": {
-        "Python": "熟悉Python编程",
-        "Web": "Web开发",
-        "Git": "版本控制",
-        "Github": "代码托管",
-        "Minecraft": "游戏开发",
-        "Scratch": "图形化编程",
-        "VibeCoding": "AI 辅助编程 (Vibe Coding)"
-    },
-    "ProjectSection": {
-        "view_all": "查看所有项目",
-        "code": "查看代码",
-        "visit": "在线演示"
-    },
-    "Sponsor": {
-        "title": "赞助",
-        "subtitle": "如果觉得本站有用，欢迎赞助支持我继续创作",
-        "form_title": "我要赞助",
-        "nickname": "昵称",
-        "nickname_placeholder": "你的昵称（将展示在赞助墙）",
-        "amount": "金额（元）",
-        "amount_custom_placeholder": "自定义金额",
-        "message": "留言",
-        "message_placeholder": "想说的话（可选）",
-        "method": "支付方式",
-        "method_alipay": "支付宝",
-        "method_wechat": "微信",
-        "submit": "确认赞助",
-        "submitting": "提交中...",
-        "wechat_pending_title": "微信收款码",
-        "wechat_pending_notice": "请扫码转账，站长确认后你的赞助会显示在下方赞助墙",
-        "wechat_back": "重新填写",
-        "alipay_return_notice": "支付已提交，赞助将在支付成功后自动上墙",
-        "wall_title": "赞助墙",
-        "wall_empty": "还没有赞助，来做第一个赞助的人吧",
-        "wall_load_failed": "当前线路不支持赞助功能，请切换到 Cloudflare 线路",
-        "error_name_required": "请填写昵称",
-        "error_amount_invalid": "金额需在 0.01~1000 元之间",
-        "error_create_failed": "下单失败：",
-        "error_platform": "当前平台不支持赞助功能（仅 Cloudflare 线路可用）"
-    },
-    "SponsorAdmin": {
-        "title": "赞助管理",
-        "password_placeholder": "管理密码",
-        "login": "登录",
-        "pending_title": "待确认（微信）",
-        "pending_empty": "暂无待确认",
-        "confirmed_title": "已确认",
-        "confirmed_empty": "暂无赞助",
-        "confirm": "确认",
-        "delete": "删除",
-        "add_title": "手动补录",
-        "add_submit": "补录",
-        "error_auth": "密码错误",
-        "error_unknown": "操作失败"
-    }
+    "learn_more": "在 16personalities 了解更多关于竞选者性格"
+  },
+  "SkillSection": {
+    "Python": "熟悉Python编程",
+    "Web": "Web开发",
+    "Git": "版本控制",
+    "Github": "代码托管",
+    "Minecraft": "游戏开发",
+    "Scratch": "图形化编程",
+    "VibeCoding": "AI 辅助编程 (Vibe Coding)"
+  },
+  "ProjectSection": {
+    "view_all": "查看所有项目",
+    "code": "查看代码",
+    "visit": "在线演示"
+  },
+  "Sponsor": {
+    "title": "赞助",
+    "subtitle": "如果觉得本站有用，欢迎赞助支持我继续创作",
+    "form_title": "我要赞助",
+    "nickname": "昵称",
+    "nickname_placeholder": "你的昵称（将展示在赞助墙）",
+    "amount": "金额（元）",
+    "amount_custom_placeholder": "自定义金额",
+    "message": "留言",
+    "message_placeholder": "想说的话（可选）",
+    "method": "支付方式",
+    "method_alipay": "支付宝",
+    "method_wechat": "微信",
+    "submit": "确认赞助",
+    "submitting": "提交中...",
+    "wechat_pending_title": "微信收款码",
+    "wechat_pending_notice": "请扫码转账，站长确认后你的赞助会显示在下方赞助墙",
+    "wechat_back": "重新填写",
+    "alipay_return_notice": "支付已提交，赞助将在支付成功后自动上墙",
+    "wall_title": "赞助墙",
+    "wall_empty": "还没有赞助，来做第一个赞助的人吧",
+    "wall_load_failed": "当前线路不支持赞助功能，请切换到 Cloudflare 线路",
+    "error_name_required": "请填写昵称",
+    "error_amount_invalid": "金额需在 0.01~1000 元之间",
+    "error_create_failed": "下单失败：",
+    "error_platform": "当前平台不支持赞助功能（仅 Cloudflare 线路可用）",
+    "description": "支持毅白 YIBAI 的个人创作与开源项目。"
+  },
+  "SponsorAdmin": {
+    "title": "赞助管理",
+    "password_placeholder": "管理密码",
+    "login": "登录",
+    "pending_title": "待确认（微信）",
+    "pending_empty": "暂无待确认",
+    "confirmed_title": "已确认",
+    "confirmed_empty": "暂无赞助",
+    "confirm": "确认",
+    "delete": "删除",
+    "add_title": "手动补录",
+    "add_submit": "补录",
+    "error_auth": "密码错误",
+    "error_unknown": "操作失败"
+  }
 }

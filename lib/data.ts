@@ -1,3 +1,4 @@
+export const locales = ['en', 'zh'] as const;
 import React from "react";
 import { FaReact } from "react-icons/fa";
 import GHS from "@/public/GHS.png";
@@ -115,3 +116,4 @@ export const skillsData = [
     "Github",
     "VibeCoding",
 ] 
+
