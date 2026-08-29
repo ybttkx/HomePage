@@ -2,15 +2,13 @@
 
 ## 2026-08-29
 - **操作**: 将 GitHub 仓库 `ybttkx/HomePage` 克隆至本地独立目录 `task/0829-homepage`。
-- **排查与诊断**:
-  - 查询 Cloudflare 后台监控与 GraphQL 指标，定位到 `homepage` Worker 因 SSR 复杂计算耗时（P90 达 77~204ms，P99 达 320~421ms），产生 1874+ 次 `exceededResources` 错误。
-- **代码重构与修复**:
-  1. `app/[locale]/layout.tsx`: 增加 `generateStaticParams` 与 `unstable_setRequestLocale`，实现全站多语言静态预渲染。
-  2. `app/[locale]/page.tsx`: 增加 `generateStaticParams` 与 `unstable_setRequestLocale`。
-  3. `app/[locale]/sponsor/page.tsx`: 移除 `force-dynamic`，抽取客户端查询参数逻辑到 `SponsorClientWrapper.tsx`，添加静态参数生成。
-  4. `app/[locale]/sponsor/admin/page.tsx`: 增加 `generateStaticParams`。
-  5. `messages/en.json` & `messages/zh.json`: 补全缺少的翻译字段，消除构建异常。
-  6. `components/Experience.tsx` & `components/Contact.tsx`: 修复导出与类型。
-  7. `.env.example`: 创建规范的环境变量模板。
-- **构建测试**:
-  - 运行 `npm run build` 和 `npx @opennextjs/cloudflare build`，所有路由（`/[locale]`、`/[locale]/sponsor`、`/[locale]/sponsor/admin`）全部成功生成为静态预渲染 `● (SSG)` 页面。
+- **排查**: 通过 Cloudflare API 与 GraphQL 查询了账户下 Worker 的实时监控指标，定位到 `homepage` 产生了 1874+ 次 `exceededResources`。
+- **静态分析与优化**:
+  - 全站引入 `generateStaticParams` 与 `unstable_setRequestLocale`，实现 `/en`、`/zh`、`/en/sponsor`、`/zh/sponsor`、`/en/sponsor/admin`、`/zh/sponsor/admin` 全量 SSG 静态预渲染。
+  - 将 `sponsor` 赞助页中客户端 URL 参数读取拆分为 `SponsorClientWrapper.tsx`，解耦 SSR 依赖。
+  - 修复缺失的国际化 i18n 词条与导出，确保打包产物完全合规。
+  - 添加 `.env.example` 模版与完善安全过滤。
+- **Push 与部署**:
+  - 提交并推送至 GitHub: `https://github.com/ybttkx/HomePage.git` (commit: `16fb14e`)。
+  - 检查 GitHub 未配置 Actions CI/CD，通过 Cloudflare Wrangler 自动打包并成功部署至线上 Worker（Version ID: `1932d166-4418-4f2f-9902-85572e95e9a8`）。
+  - 验证 `https://homepage.ybnbttkx.workers.dev/zh` 正常以 200 OK 响应，耗时极低。
