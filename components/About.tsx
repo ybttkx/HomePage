@@ -273,6 +273,9 @@ const GithubStatsCard = ({ index }: { index: number }) => (
           <img
             src="https://ghchart.rshah.org/ybttkx"
             alt="GitHub Contributions"
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
             className="w-full h-full object-contain transition-all duration-300"
           />
         </div>

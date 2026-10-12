@@ -1,0 +1,284 @@
+{
+  "host": "127.0.0.1",
+  "measuredAt": "2026-10-12T05:54:35.864Z",
+  "html": {
+    "bytes": 16170,
+    "decoded": 73892,
+    "ttfb": 15
+  },
+  "totalAssetBytes": 318099,
+  "sums": {
+    "JS": {
+      "n": 21,
+      "bytes": 215422,
+      "maxTtfb": 11.157899999999998,
+      "maxTotal": 27.427600000000012
+    },
+    "CSS": {
+      "n": 2,
+      "bytes": 8500,
+      "maxTtfb": 23.499999999999986,
+      "maxTotal": 23.6751
+    },
+    "图片": {
+      "n": 5,
+      "bytes": 94177,
+      "maxTtfb": 1440.9679999999998,
+      "maxTotal": 1539.4995
+    }
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/fd9d1056-844a5cc198651369.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 53742,
+      "ttfb": 11
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/23-c1b0cded1a0e1453.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 31554,
+      "ttfb": 11
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/main-app-1df71a5184c8ff97.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 462,
+      "ttfb": 8
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/795d4814-1c9bbb9f0071d5df.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 720,
+      "ttfb": 9
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/8e1d74a4-bd263496d1685898.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 1893,
+      "ttfb": 11
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/30a37ab2-5953e1a3433d518f.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 827,
+      "ttfb": 8
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/5e22fd23-f18be24631445b6b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 434,
+      "ttfb": 5
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/ee560e2c-1d5ca5ffd6c8ef2b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 532,
+      "ttfb": 6
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/53c13509-3df48425375d3052.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 2217,
+      "ttfb": 8
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/3d47b92a-4e3f321533ef47a6.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 765,
+      "ttfb": 6
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/87-2f56b0138bb5ea50.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 15548,
+      "ttfb": 5
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/265-277f146d59d47282.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 36057,
+      "ttfb": 5
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/147-c259ec2dee34fa27.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 7453,
+      "ttfb": 3
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/995-e6bddf9e5e5535ba.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 12782,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/app/%5Blocale%5D/page-f7e9fcebc211536e.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 8937,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/app/not-found-3be27ca42ea2bff6.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 615,
+      "ttfb": 3
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/9c4e2130-40db8a5828e1d69b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 862,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/0e762574-65baf8737b4ee1d3.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 647,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/app/%5Blocale%5D/layout-7b9d45c3c144c15f.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 6425,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 31177,
+      "ttfb": 5
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/chunks/webpack-911617ccdf33dd1a.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 1773,
+      "ttfb": 4
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/css/ff9aa471f2babd1d.css",
+      "cat": "CSS",
+      "kind": "css",
+      "ok": true,
+      "status": 200,
+      "bytes": 7834,
+      "ttfb": 23
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/css/fd5dbb41dd6cbcd4.css",
+      "cat": "CSS",
+      "kind": "css",
+      "ok": true,
+      "status": 200,
+      "bytes": 666,
+      "ttfb": 22
+    },
+    {
+      "url": "http://127.0.0.1:3210/tx.jpg",
+      "cat": "图片",
+      "kind": "image",
+      "ok": true,
+      "status": 200,
+      "bytes": 24332,
+      "ttfb": 2
+    },
+    {
+      "url": "http://127.0.0.1:3210/enfp.svg",
+      "cat": "图片",
+      "kind": "image",
+      "ok": true,
+      "status": 200,
+      "bytes": 1830,
+      "ttfb": 22
+    },
+    {
+      "url": "https://ghchart.rshah.org/ybttkx",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 2847,
+      "ttfb": 1441
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/media/ios26.20693be5.webp",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 43078,
+      "ttfb": 2
+    },
+    {
+      "url": "http://127.0.0.1:3210/_next/static/media/blog.5de51b7a.webp",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 22090,
+      "ttfb": 2
+    }
+  ]
+}

@@ -45,3 +45,7 @@ next-env.d.ts
 .env.production
 .env.development
 
+# 构建期临时目录（OpenNext 在 Windows 上需要把 TEMP 指向项目内）
+/.tmp-opennext/
+.tmp-opennext/
+

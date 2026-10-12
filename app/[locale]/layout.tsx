@@ -10,8 +10,6 @@ import ActiveSectionContextProvider from "@/context/action-section-context"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations, unstable_setRequestLocale } from "next-intl/server"
 import WidgetWrapper from "@/components/WidgetWrapper"
-import RouteSwitch from "@/components/RouteSwitch"
-
 const inter = Inter({ subsets: ["latin"] })
 
 export function generateStaticParams() {
@@ -67,7 +65,6 @@ export default async function RootLayout({
               <div className="flex-1">{children}</div>
               <Footer />
               <WidgetWrapper>
-                <RouteSwitch />
                 <ThemeSwitch />
               </WidgetWrapper>
             </ActiveSectionContextProvider>

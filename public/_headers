@@ -1,0 +1,49 @@
+# 静态资源缓存策略
+#
+# 适用平台：Cloudflare Workers Assets（cf.ybovo.com）与 EdgeOne Pages（eo.ybovo.com）
+# 注意：Vercel 不读取本文件，其等价规则配置在项目根目录的 vercel.json
+#
+# 背景：修复前 public/ 下的图片、音频均返回
+#   Cache-Control: public, max-age=0, must-revalidate
+#   即每次访问都要回源校验，白白多一次往返。
+#   这里改为浏览器缓存 1 天 + 过期后 7 天内先返回旧副本并后台刷新
+#   （stale-while-revalidate），兼顾速度与内容更新。
+
+/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.jpg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.jpeg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.webp
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.avif
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.gif
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.ico
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.wav
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.mp3
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.ogg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable

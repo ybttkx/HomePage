@@ -11,11 +11,6 @@ const routes = [
     url: "https://ybovo.com",
   },
   {
-    name: "三网优化线路",
-    name_en: "CN2/Optimized Route",
-    url: "https://vip.ybovo.com",
-  },
-  {
     name: "全球线路 (Cloudflare)",
     name_en: "Global Route (CF)",
     url: "https://cf.ybovo.com",
@@ -142,7 +137,7 @@ export default function RouteSwitch() {
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-0 right-[3.2rem] mr-2 w-64 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl p-3 shadow-2xl z-[1000] flex flex-col gap-1.5 animate-in fade-in slide-in-from-right-2 duration-200">
+        <div className="absolute top-full right-0 mt-3 w-64 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl p-3 shadow-2xl z-[1000] flex flex-col gap-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="text-xs font-semibold px-2 py-1 text-gray-400 dark:text-gray-500 uppercase tracking-wider">
             {activeLocale === "zh" ? "📡 线路切换 / 测速" : "📡 Route Switch / Ping"}
           </div>
