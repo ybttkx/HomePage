@@ -168,6 +168,17 @@ switch (cmd) {
     break;
   }
 
+  case 'purge': {
+    const zone = await findZone(arg || 'ybovo.com');
+    const r = await api(`/zones/${zone.id}/purge_cache`, {
+      method: 'POST',
+      body: JSON.stringify({ purge_everything: true }),
+    });
+    show(`清除 ${zone.name} 全部边缘缓存`, r);
+    if (r.success) console.log('  ' + JSON.stringify(r.result));
+    break;
+  }
+
   case 'rule-toggle': {
     // 启用/禁用指定描述的缓存规则：node cf-api.mjs rule-toggle <zone> <true|false>
     const zone = await findZone(arg || 'ybovo.com');

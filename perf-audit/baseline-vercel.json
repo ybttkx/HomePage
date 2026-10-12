@@ -1,0 +1,308 @@
+{
+  "host": "ybovo.com",
+  "measuredAt": "2026-10-12T14:21:35.095Z",
+  "html": {
+    "bytes": 15982,
+    "decoded": 74292,
+    "ttfb": 831
+  },
+  "totalAssetBytes": 387403,
+  "sums": {
+    "JS": {
+      "n": 21,
+      "bytes": 224201,
+      "maxTtfb": 609.9161999999999,
+      "maxTotal": 1292.2761
+    },
+    "CSS": {
+      "n": 2,
+      "bytes": 8889,
+      "maxTtfb": 445.22159999999985,
+      "maxTotal": 445.4537
+    },
+    "字体": {
+      "n": 2,
+      "bytes": 60096,
+      "maxTtfb": 448.4912999999997,
+      "maxTotal": 512.8337999999999
+    },
+    "图片": {
+      "n": 5,
+      "bytes": 94217,
+      "maxTtfb": 1306.9673000000003,
+      "maxTotal": 1584.3563999999997
+    }
+  },
+  "assets": [
+    {
+      "url": "https://ybovo.com/_next/static/chunks/fd9d1056-844a5cc198651369.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 55054,
+      "ttfb": 328
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/23-c1b0cded1a0e1453.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 32667,
+      "ttfb": 352
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/main-app-f73cdb3bce740b12.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 462,
+      "ttfb": 364
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/795d4814-1c9bbb9f0071d5df.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 720,
+      "ttfb": 361
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/8e1d74a4-bd263496d1685898.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 1903,
+      "ttfb": 610
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/30a37ab2-5953e1a3433d518f.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 851,
+      "ttfb": 143
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/5e22fd23-f18be24631445b6b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 434,
+      "ttfb": 143
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/ee560e2c-1d5ca5ffd6c8ef2b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 532,
+      "ttfb": 135
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/53c13509-3df48425375d3052.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 2231,
+      "ttfb": 144
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/3d47b92a-4e3f321533ef47a6.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 765,
+      "ttfb": 142
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/87-2f56b0138bb5ea50.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 16468,
+      "ttfb": 368
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/265-277f146d59d47282.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 37820,
+      "ttfb": 411
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/147-c259ec2dee34fa27.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 7853,
+      "ttfb": 417
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/432-d5fc6359354b8e02.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 13315,
+      "ttfb": 358
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/app/%5Blocale%5D/page-aba9d1b679e2b2a8.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 9434,
+      "ttfb": 404
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/app/not-found-f47f85780aabfde7.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 615,
+      "ttfb": 317
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/9c4e2130-40db8a5828e1d69b.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 877,
+      "ttfb": 322
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/0e762574-65baf8737b4ee1d3.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 675,
+      "ttfb": 512
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/app/%5Blocale%5D/layout-2ee4e2d0daf86df2.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 6785,
+      "ttfb": 354
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 32681,
+      "ttfb": 399
+    },
+    {
+      "url": "https://ybovo.com/_next/static/chunks/webpack-c31be3d9c0bf3851.js",
+      "cat": "JS",
+      "kind": "script",
+      "ok": true,
+      "status": 200,
+      "bytes": 2059,
+      "ttfb": 340
+    },
+    {
+      "url": "https://ybovo.com/_next/static/css/b8fbf2cb2de83d05.css",
+      "cat": "CSS",
+      "kind": "css",
+      "ok": true,
+      "status": 200,
+      "bytes": 8206,
+      "ttfb": 335
+    },
+    {
+      "url": "https://ybovo.com/_next/static/css/b70a9a66e4c252ac.css",
+      "cat": "CSS",
+      "kind": "css",
+      "ok": true,
+      "status": 200,
+      "bytes": 683,
+      "ttfb": 445
+    },
+    {
+      "url": "https://ybovo.com/_next/static/media/e4af272ccee01ff0-s.p.woff2",
+      "cat": "字体",
+      "kind": "font",
+      "ok": true,
+      "status": 200,
+      "bytes": 48432,
+      "ttfb": 448
+    },
+    {
+      "url": "https://ybovo.com/_next/static/media/75dc86395c24eff6-s.p.woff2",
+      "cat": "字体",
+      "kind": "font",
+      "ok": true,
+      "status": 200,
+      "bytes": 11664,
+      "ttfb": 347
+    },
+    {
+      "url": "https://ybovo.com/tx.jpg",
+      "cat": "图片",
+      "kind": "image",
+      "ok": true,
+      "status": 200,
+      "bytes": 24332,
+      "ttfb": 937
+    },
+    {
+      "url": "https://ybovo.com/enfp.svg",
+      "cat": "图片",
+      "kind": "image",
+      "ok": true,
+      "status": 200,
+      "bytes": 1879,
+      "ttfb": 321
+    },
+    {
+      "url": "https://ghchart.rshah.org/ybttkx",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 2838,
+      "ttfb": 1307
+    },
+    {
+      "url": "https://ybovo.com/_next/static/media/ios26.20693be5.webp",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 43078,
+      "ttfb": 337
+    },
+    {
+      "url": "https://ybovo.com/_next/static/media/blog.5de51b7a.webp",
+      "cat": "图片",
+      "kind": "img",
+      "ok": true,
+      "status": 200,
+      "bytes": 22090,
+      "ttfb": 347
+    }
+  ]
+}

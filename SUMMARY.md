@@ -99,16 +99,26 @@ node perf-audit/baseline.mjs http://127.0.0.1:3210/zh
 
 ---
 
-## 4. 后续待办（需在平台控制台操作）
+## 4. 部署状态与后续
 
-- [ ] **Cloudflare**：创建 Cache Rule 缓存 HTML（`cf.ybovo.com/*`，Edge TTL 设为较长值并忽略源站缓存头），否则边缘仍不缓存 HTML。
-- [ ] **EdgeOne**：开启 HTML 压缩（实测 identity/gzip/brotli 均为 84.3KB，压缩收益 0%），并配置缓存规则。
-- [ ] **Vercel**：确认项目 Region 设为 `hnd1`（东京），避免渲染函数落在美东 `iad1`。
-- [ ] 可选：为 `ghchart.rshah.org` 自建反代并加长缓存，彻底消除 1.4~2.7 秒延迟。
-- [ ] 可选：将 `framer-motion`、`howler` 等客户端库按需拆分，进一步压缩 210KB 的 JS。
+### 已完成（2026-10-12 当晚落地线上）
+
+- [x] **代码改动**已推送至 GitHub（`a8a6b81`、`e9edc28`），触发 Vercel 自动部署。
+- [x] **Vercel（ybovo.com）**：已上线。`x-vercel-cache: HIT`，渲染区域由 `iad1`（美东）回到 `hnd1`（东京）。
+- [x] **Cloudflare（cf.ybovo.com）**：已部署（版本 `0aba608c`）。新建缓存规则「HTML 边缘缓存」并启用，已执行过一次 `purge_cache`。
+- [x] **EdgeOne（eo.ybovo.com）**：**按用户要求放生**，不部署、不配置。
+
+### 仍待处理
+
+- [ ] **EdgeOne 仍跑旧版代码**，其 HTML 会渲染访客真实 IP。目前未开缓存故不会串号，但若将来启用缓存必须先行更新或摘除该线路。
+- [ ] **Next.js 14.2.3 已过支持期**，构建需带 `--dangerouslyUseUnsupportedNextVersion`，建议单独安排升级。
+- [ ] **Cloudflare HTML 边缘缓存不稳定**：热态 255~296ms，但响应无 `age` 头，并非每次都从边缘返回。若要稳定命中需改为 Worker 内 Cache API 显式缓存（需改 `wrangler.toml` 的 `main`，属有风险改动）。
+- [ ] 可选：为 `ghchart.rshah.org` 自建反代并加长缓存，彻底消除 1.3~2.7 秒延迟。
+- [ ] 可选：将 `framer-motion`、`howler` 等客户端库按需拆分，进一步压缩约 219KB 的 JS。
 
 ## 5. 相关文档
 
+- **完整前后对比报告**：`perf-audit/FINAL-REPORT.md`
 - 性能诊断报告：`perf-audit/REPORT.md`
 - 开发日志：`LOG.md`
 - 使用说明：`README.md`

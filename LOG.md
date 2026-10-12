@@ -73,8 +73,8 @@ EdgeOne 落在新加坡且抖动严重（静态资源 TTFB 148ms~7423ms，出现
 - 首屏传输体积：**1378.3 KB → 326.4 KB（下降 76%）**，其中图片 1131.3 KB → 92.0 KB。
 
 ### 五、遗留事项
-需在平台控制台完成，无法通过代码修改：Cloudflare 建 Cache Rule 缓存 HTML、
-EdgeOne 开启 HTML 压缩并配缓存、Vercel 确认 Region 为 `hnd1`。
+EdgeOne 的 HTML 压缩与缓存需在腾讯云控制台操作，**已按用户要求放生**。
+Vercel 的 Region 经复核已确认落在 `hnd1`（东京），无需再改。
 
 ### 六、踩坑记录
 - `curl` 报 `schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS`，
@@ -83,3 +83,39 @@ EdgeOne 开启 HTML 压缩并配缓存、Vercel 确认 Region 为 `hnd1`。
   导致 `ERR_INVALID_IP_ADDRESS`，已在 v2 修正并显式关闭 `autoSelectFamily`。
 - `next build` 在类型检查阶段报 `spawn EPERM`：jest-worker 需 fork 子进程，
   而受限沙箱禁止管道通信。已通过放宽文件策略解决，非代码问题。
+
+### 七、部署与最终验证（2026-10-12 晚）
+
+**Cloudflare（cf.ybovo.com）**：部署两次，版本 `c8a7a20b-3412-45d8-8107-70d1cc80e76f`（主体优化）
+与 `0aba608c-ef32-4073-bf76-291286734eb5`（线路提示）。构建过程踩了两个坑：
+
+1. `esbuild ... Access is denied` —— OpenNext 官方声明不完全兼容 Windows，
+   默认往 `%TEMP%` 写临时文件被拒（本机卡巴斯基 `avp` 进程在运行，`%TEMP%` 权限本身正常）。
+   解决：把 `TEMP`/`TMP` 指向项目内 `.tmp-opennext/`（已加入 `.gitignore`）。
+2. `Next.js version 14.2.3 is not supported` —— 14.x 两年支持期已过。
+   解决：构建时加 `--dangerouslyUseUnsupportedNextVersion`。
+   **该版本可能存在未修补的安全漏洞，建议后续单独安排升级。**
+
+部署后线上出现 `main-app-2e660ed0290f68c3.js 404`：边缘仍缓存上一版 HTML，
+而其中的旧 chunk 已被替换。执行 `purge_cache` 清除后恢复正常。
+
+**Vercel（ybovo.com）**：随 Git 推送自动部署，`x-vercel-cache: HIT`，
+`x-vercel-id` 由 `hnd1::iad1` 变为纯 `hnd1`（渲染不再跨洋到美东）。
+
+**EdgeOne（eo.ybovo.com）**：按要求放生，未做部署与配置。
+注意它仍运行旧版，HTML 中仍会渲染访客真实 IP（当前未开缓存，故不会串号）。
+
+**Cloudflare 缓存规则**：通过 API 新建「HTML 边缘缓存」（id `023e973f9c2641e0abaf59c4f3a70aba`），
+表达式 `(http.host eq "cf.ybovo.com" and not starts_with(uri.path,"/api/")
+and not starts_with(uri.path,"/_next/") and not uri.path contains ".")`，`edge_ttl=override_origin 3600s`。
+区域原 `cache_level = "simplified"` 正是 HTML 不被缓存的根因。
+
+**安全设计**：规则创建后**先停用**，待新代码部署并确认 HTML 中客户端 IP 已变为
+「检测中…」占位符后**再启用**，避免旧版 HTML（会渲染访客真实 IP）被缓存造成串号泄露。
+
+**最终实测**：首屏 ybovo.com 1378.3KB → 393.9KB（−71.4%），cf.ybovo.com → 327.7KB；
+cf 热态响应 255~296ms。完整对比见 `perf-audit/FINAL-REPORT.md`。
+
+**凭据处置**：本次使用的 Cloudflare Token 与 R2 密钥均为对话中明文提供，
+只在内存与环境变量中使用，未写入任何文件或提交记录；已在报告中建议轮换。
+浏览器临时 profile（含 cookies 副本，531MB）已在任务结束后删除。
