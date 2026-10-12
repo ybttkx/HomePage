@@ -4,7 +4,16 @@ import React, { useState, useEffect, useRef } from "react"
 import { useLocale } from "next-intl"
 import { IoWifiOutline } from "react-icons/io5"
 
-const routes = [
+type Route = {
+  name: string
+  name_en: string
+  url: string
+  /** 可选的补充说明，用于提示该线路的已知短板 */
+  note?: string
+  note_en?: string
+}
+
+const routes: Route[] = [
   {
     name: "主线路 (亚洲)",
     name_en: "Main Route (Asia)",
@@ -19,6 +28,9 @@ const routes = [
     name: "国外线路 (EdgeOne)",
     name_en: "Overseas Route (EO)",
     url: "https://eo.ybovo.com",
+    // 该线路节点在新加坡，实测延迟与稳定性均明显落后于前两条，故不作速度承诺
+    note: "不保证速度",
+    note_en: "Speed not guaranteed",
   },
 ]
 
@@ -165,6 +177,12 @@ export default function RouteSwitch() {
                 }`}>
                   {activeLocale === "zh" ? route.name : route.name_en}
                 </span>
+
+                {route.note && (
+                  <span className="mt-0.5 text-[10px] font-medium text-amber-600/90 dark:text-amber-400/80">
+                    {activeLocale === "zh" ? route.note : route.note_en}
+                  </span>
+                )}
                 
                 <div className="flex items-center justify-between mt-1">
                   <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono tracking-wide">
